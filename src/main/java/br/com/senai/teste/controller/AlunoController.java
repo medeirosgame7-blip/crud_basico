@@ -1,5 +1,7 @@
 package br.com.senai.teste.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.senai.teste.model.aluno;
+import br.com.senai.teste.model.Aluno;
 import br.com.senai.teste.service.AlunoService;
 
 @RestController 
@@ -21,10 +23,10 @@ public class AlunoController {
     }
 
     @PostMapping
-    public ResponseEntity<aluno> cadastrar(
-             @RequestBody aluno aluno) {
+    public ResponseEntity<Aluno> cadastrar(
+             @RequestBody Aluno aluno) {
         
-        aluno alunoCadastrado = alunoService.cadastrar(aluno);
+        Aluno alunoCadastrado = alunoService.cadastrar(aluno);
         
         return ResponseEntity
             .status(HttpStatus.CREATED)
@@ -33,5 +35,11 @@ public class AlunoController {
         
         }
     
+    @getMapping
+    public ResponseEntity<List<Aluno>> listar() {
+
+    }
+
+
     
 }

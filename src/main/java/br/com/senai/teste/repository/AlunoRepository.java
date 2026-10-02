@@ -2,9 +2,9 @@ package br.com.senai.teste.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.senai.teste.model.aluno;
+import br.com.senai.teste.model.Aluno;
 
 public interface AlunoRepository 
-        extends JpaRepository<aluno, Integer> {
+        extends JpaRepository<Aluno, Integer> {
 
 }
