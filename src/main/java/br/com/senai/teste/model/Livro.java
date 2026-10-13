@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 @Entity 
 @Table (name = "livro")
 public class Livro {
+   
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY) 
     private int id;
@@ -52,7 +53,7 @@ public class Livro {
         return anoPublicacao;
     }
     
-    public void setEmail(int anoPublicacao) {
+    public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 }
