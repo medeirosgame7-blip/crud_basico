@@ -3,9 +3,11 @@ package br.com.senai.teste.controller;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -67,5 +69,19 @@ public class EmprestimoController {
         }
 
         return ResponseEntity.notFound().build();
-            }
+    }
+
+    @PatchMapping("/{id}/devolucao")
+    public ResponseEntity<Emprestimo> devolver(
+            @PathVariable Integer id) {
+        
+        Optional<Emprestimo> emprestimo = emprestimoService.devolver(id);
+
+        if (emprestimo.isPresent()) {
+            return ResponseEntity.ok(emprestimo.get());
+        }
+
+        return ResponseEntity.notFound().build();
+            } 
+
 }
